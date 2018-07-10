@@ -3,6 +3,7 @@ extern crate std;
 
 use self::std::io;
 use self::rand::Rng;
+use std::cmp::Ordering;
 
 pub fn random_exapmle() {
     println!("Guess the number!");
@@ -19,4 +20,12 @@ pub fn random_exapmle() {
         .expect("Failed to read line");
 
     println!("You guessed: {}", guess);
+
+    let guessed_number = guess.trim().parse::<i32>().unwrap();
+
+    match guessed_number.cmp(&secret_number) {
+        Ordering::Less => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
 }
