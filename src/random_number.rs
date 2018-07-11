@@ -12,20 +12,25 @@ pub fn random_exapmle() {
 
     println!("The secret number is: {}", secret_number);
 
-    println!("Please input your guess.");
+    loop {
+        println!("Please input your guess.");
 
-    let mut guess = String::new();
+        let mut guess = String::new();
 
-    io::stdin().read_line(&mut guess)
-        .expect("Failed to read line");
+        io::stdin().read_line(&mut guess)
+            .expect("Failed to read line");
 
-    println!("You guessed: {}", guess);
+        println!("You guessed: {}", guess);
+        let guessed_number: u32 = guess.trim().parse()
+            .expect("Please type a number!");
 
-    let guessed_number = guess.trim().parse::<i32>().unwrap();
-
-    match guessed_number.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        match guessed_number.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
     }
 }
