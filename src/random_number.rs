@@ -21,8 +21,13 @@ pub fn random_exapmle() {
             .expect("Failed to read line");
 
         println!("You guessed: {}", guess);
-        let guessed_number: u32 = guess.trim().parse()
-            .expect("Please type a number!");
+        let guessed_number: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Plz input number");
+                continue;
+            },
+        };;
 
         match guessed_number.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
