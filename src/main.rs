@@ -2,10 +2,19 @@
 // mod hello_world;
 // mod guess;
 // mod expression;
-mod owner_ship;
+// mod owner_ship;
+
+mod japanese;
+mod english;
 
 fn main() {
-    owner_ship::owner_ship();
+    println!("Hello in English: {}", english::greetings::hello());
+    println!("Goodbye in English: {}", english::farewells::goodbye());
+
+    println!("Hello in Japanese: {}", japanese::greetings::hello());
+    println!("Goodbye in Japanese: {}", japanese::farewells::goodbye());
+
+    // owner_ship::owner_ship();
     // expression::expression();
     // hello_world::hello_world();
     // guess::guess();
