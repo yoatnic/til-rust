@@ -4,15 +4,14 @@
 // mod expression;
 // mod owner_ship;
 
-mod japanese;
-mod english;
+mod phrases;
 
 fn main() {
-    println!("Hello in English: {}", english::greetings::hello());
-    println!("Goodbye in English: {}", english::farewells::goodbye());
+    println!("Hello in English: {}", phrases::english::greetings::hello());
+    println!("Goodbye in English: {}", phrases::english::farewells::goodbye());
 
-    println!("Hello in Japanese: {}", japanese::greetings::hello());
-    println!("Goodbye in Japanese: {}", japanese::farewells::goodbye());
+    println!("Hello in Japanese: {}", phrases::japanese::greetings::hello());
+    println!("Goodbye in Japanese: {}", phrases::japanese::farewells::goodbye());
 
     // owner_ship::owner_ship();
     // expression::expression();
